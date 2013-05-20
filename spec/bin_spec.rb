@@ -24,7 +24,7 @@ describe 'the binary' do
 
     it 'exits with a status of 0' do
       stdout, stderr, status = execute_binary(filename)
-      status.exitstatus.should == 0
+      status.should be_success
     end
   end
 
@@ -43,7 +43,7 @@ describe 'the binary' do
 
     it 'exits with a status of 1' do
       stdout, stderr, status = execute_binary(nonexistent_filename)
-      status.exitstatus.should == 1
+      status.should_not be_success
     end
   end
 end

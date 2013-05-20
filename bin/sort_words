@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'sort_words'
+
+filename = ARGV.first
+
+if File.exist? filename
+  words = File.read(filename).split("\n")
+  SortWords.new(words).call.each { |word| puts word }
+else
+  $stderr.puts "no such file"
+  exit 1
+end
